@@ -1,4 +1,5 @@
-# 网上找到的kubectl安装shell命令集合
+## 网上找到的kubectl安装shell命令集合
+### 使用cri-o作为容器
 ```
 export APISERVER_ADVERTISE_ADDRESS=0.0.0.0
 export KUBE_YAML_DIR=/etc/kubernetes/yaml/ && mkdir -p ${KUBE_YAML_DIR}
@@ -142,7 +143,7 @@ kubectl -n kube-system describe `kubectl -n kube-system get secret -o name | gre
 CPUAccounting=true
 MemoryAccounting=true
 ```
-
+### 使用Docker作为容器（推荐）
 ###################################  kubeadm方式安装kubectl #######################################################
 ``` kubetnetes basic
 
