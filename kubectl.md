@@ -144,7 +144,7 @@ MemoryAccounting=true
 ```
 
 ###################################  kubeadm方式安装kubectl #######################################################
-kubetnetes basic
+``` kubetnetes basic
 
 交互式界面
 
@@ -642,3 +642,4 @@ kubeadm join cluster-endpoint:6443 --token xqm7m0.b5kte1w4is1wy0a1 \
 kubeadm join cluster-endpoint:6443 --token xqm7m0.b5kte1w4is1wy0a1 \
   --discovery-token-ca-cert-hash sha256:ac0fc57d71c6322d2fca7c71b55aeb7f20d6eb97fe8baa9cd6b5b7069fc8a88c \
   --control-plane --apiserver-advertise-address=10.1.1.93 --ignore-preflight-errors=Swap
+  ```
