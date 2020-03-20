@@ -80,7 +80,7 @@ yum install -y conntrack ipvsadm ipset jq sysstat curl iptables libseccomp
 > sudo mkdir -p /etc/docker
 > sudo tee /etc/docker/daemon.json <<-'EOF'
 > {
->   "registry-mirrors": ["这边替换成自己的实际地址"]
+>   "registry-mirrors": ["https://qwdfeixv.mirror.aliyuncs.com"]
 > }
 > EOF
 > sudo systemctl daemon-reload
