@@ -1,0 +1,102 @@
+{
+  "type": "kafka",
+  "ioConfig": {
+    "type": "kafka",
+    "consumerProperties": {
+      "bootstrap.servers": "192.168.2.100:9092",
+      "auto.commit.enable":"false",
+      "auto.offset.reset":"largest",
+      "fetch.message.max.bytes":"1048586",
+      "zookeeper.connect":"192.168.2.100:2188",
+      "zookeeper.connection.timeout.ms":"15000",
+      "zookeeper.session.timeout.ms":"15000",
+      "zookeeper.sync.time.ms":"5"
+    },
+    "topic": "druid-dev",
+    "useEarliestOffset": true
+  },
+  "tuningConfig": {
+    "type": "kafka",
+    "basePersistDirectory":"/tmp/druid/kafka/basePersist",
+    "intermediatePersistPeriod":"PT10m",
+    "maxRowsInMemory":100000,
+    "rejectionPolicy" : {
+      "type" : "serverTime"
+    },
+    "windowPeriod":"PT10m"
+  },
+  "dataSchema": {
+    "dataSource": "druid-dev",
+    "granularitySpec": {
+      "type": "uniform",
+      "queryGranularity": "HOUR",
+      "segmentGranularity": "DAY",
+      "rollup": true
+    },
+    "parser": {
+      "type": "string",
+      "parseSpec": {
+        "format": "json",
+        "timestampSpec": {
+          "column": "updateTime",
+          "format": "yyyy-MM-dd HH:mm:ss"
+        },
+        "dimensionsSpec": {
+          "dimensions": [
+            "dispState",
+            "modeState",
+            "addSpeed",
+            "countofObstacle",
+            "currentGear",
+            "currentTaskCode",
+            "curSpeed",
+            "day",
+            "fromVakCode",
+            "gnssState",
+            "latitude",
+            "lockedDeviceCode",
+            "longitude",
+            "monitorDataType",
+            "msgProdDevCode",
+            "navAngle",
+            "realAcceleratorRate",
+            "realBrakeLightState",
+            "realContourLightState",
+            "realElectricBrakeState",
+            "realElectricFlowBrakeRate",
+            "realEmergencyLightState",
+            "realForwardBrakeState",
+            "realHouseLiftRate",
+            "realHydBrakeRate",
+            "realLoadBrakeState",
+            "realMotorRotSpeed",
+            "realMotorState",
+            "realNearLightState",
+            "realParkingBrakeState",
+            "realSteerAngle",
+            "realSteerRotSpeed",
+            "realTurnLeftlightState",
+            "realTurnRightlightState",
+            "trackCode",
+            "vakMode",
+            "vakRequestCode",
+            "wheelAngle",
+            "xLocality",
+            "yawAngle",
+            "yLocality",
+            "yWorld",
+            "runFlag",
+            "taskState",
+            "vehicleId"
+          ]
+        }
+      }
+    },
+    "metricsSpec": [
+      {
+        "name": "count",
+        "type": "count"
+      }
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "type": "kafka",
+  "ioConfig": {
+    "type": "kafka",
+    "consumerProperties": {
+      "bootstrap.servers": "192.168.2.100:9092"
+    },
+    "topic": "druid-dev",
+    "useEarliestOffset": true
+  },
+  "tuningConfig": {
+    "type": "kafka"
+  },
+  "dataSchema": {
+    "dataSource": "druid-dev",
+    "granularitySpec": {
+      "type": "uniform",
+      "queryGranularity": "HOUR",
+      "segmentGranularity": "DAY",
+      "rollup": true
+    },
+    "parser": {
+      "type": "string",
+      "parseSpec": {
+        "format": "json",
+        "timestampSpec": {
+          "column": "updateTime",
+          "format": "yyyy-MM-dd HH:mm:ss"
+        },
+        "dimensionsSpec": {
+          "dimensions": [
+            "dispState",
+            "modeState",
+            "addSpeed",
+            "countofObstacle",
+            "currentGear",
+            "currentTaskCode",
+            "curSpeed",
+            "day",
+            "fromVakCode",
+            "gnssState",
+            "latitude",
+            "lockedDeviceCode",
+            "longitude",
+            "monitorDataType",
+            "msgProdDevCode",
+            "navAngle",
+            "realAcceleratorRate",
+            "realBrakeLightState",
+            "realContourLightState",
+            "realElectricBrakeState",
+            "realElectricFlowBrakeRate",
+            "realEmergencyLightState",
+            "realForwardBrakeState",
+            "realHouseLiftRate",
+            "realHydBrakeRate",
+            "realLoadBrakeState",
+            "realMotorRotSpeed",
+            "realMotorState",
+            "realNearLightState",
+            "realParkingBrakeState",
+            "realSteerAngle",
+            "realSteerRotSpeed",
+            "realTurnLeftlightState",
+            "realTurnRightlightState",
+            "trackCode",
+            "vakMode",
+            "vakRequestCode",
+            "wheelAngle",
+            "xLocality",
+            "yawAngle",
+            "yLocality",
+            "yWorld",
+            "runFlag",
+            "taskState",
+            "vehicleId"
+          ],
+          "spatialDimensions": [
+            "latitude",
+            "longitude"
+          ]
+        }
+      }
+    },
+    "metricsSpec": [
+      {
+        "name": "count",
+        "type": "count"
+      }
+    ]
+  }
+}
